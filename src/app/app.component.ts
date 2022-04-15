@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { from, Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-root',
@@ -12,7 +12,9 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    of("Suman","Pujan").subscribe(resp=>console.log(resp));
+    // from converts other form of data to observables
+    //array to observable
+    from(["Suman", "Pujan"]).subscribe(resp => console.log(resp));
   }
 
 }
