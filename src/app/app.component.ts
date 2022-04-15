@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-root',
@@ -12,10 +12,7 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get(this.url).subscribe((resp: any) => { console.log("1. ", resp.first_name) });
-    this.http.get(this.url).subscribe((resp: any) => { console.log("2. ", resp.first_name) });
-    this.http.get(this.url).subscribe((resp: any) => { console.log("3. ", resp.first_name) });
-    this.http.get(this.url).subscribe((resp: any) => { console.log("4. ", resp.first_name) });
+    of("Suman","Pujan").subscribe(resp=>console.log(resp));
   }
 
 }
